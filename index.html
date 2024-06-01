@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <header>
+        <i id="book-icon"><img src="./book-icon.svg"></i>
+        <h1>Library</h1>
+    </header>
+    <main>
+        <div id="library">
+        </div>
+        <button id="add-book-button">+</button>
+        <dialog>
+            <p>Add a book</p>
+            <form novalidate>
+                <div>
+                    <label for="title">*Title: </label>
+                    <input type="text" id="title" name="title" required>
+                    <span class="error-message"></span>
+                </div>
+                <div>
+                    <label for="author">*Author: </label>
+                    <input type="text" id="author" name="author" required>
+                    <span class="error-message"></span>
+                </div>
+                <div>
+                    <label for="pages">*Pages: </label>
+                    <input type="text" id="pages" name="pages" pattern="^\d*[1-9]\d*$" required>
+                    <span class="error-message"></span>
+                </div>
+                <div id="read-container">
+                    <label for="read">Completed: 
+                        <input type="checkbox" id="read" name="read">
+                        <span id="slider"></span>
+                    </label>
+                </div>
+                <div id="form-buttons">
+                    <button id="form-cancel" type="button" autofocus>Cancel</button>
+                    <button id="form-submit" type="submit">Add</button>
+                </div>
+            </form>
+        </dialog>
+    </main>
+    <footer>cocoxcomputerscience@gmail.com</footer>
+</body>
+</html>
