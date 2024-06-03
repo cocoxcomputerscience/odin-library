@@ -161,6 +161,7 @@ main {
 
 /* dialog and form */
 dialog {
+    width: 14rem;
     margin: auto;
     padding: 1.5rem;
     color: white;
@@ -216,7 +217,7 @@ input[type="text"]{
     position: absolute;
     right: 0;
     width: 2.5rem;
-    height: 100%;
+    height: 1.15rem;
     background-color: gray;
     border-radius: 1rem;
     transition: 0.4s;
