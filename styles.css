@@ -82,7 +82,7 @@ main {
     background: var(--gold) url("./images/library.jpg") center/cover no-repeat;
     background-blend-mode: multiply;
     flex-grow: 1;
-    padding: 1.5rem 2rem;
+    padding: 2rem;
 }
 
 #library {
@@ -90,6 +90,7 @@ main {
     grid-template-columns: 14rem repeat(auto-fit, 14rem);
     gap: 1rem;
     padding: 0 3rem;
+    justify-content: center;
 }
 
 .card {
@@ -137,7 +138,7 @@ main {
 
 #add-book-button {
     position: fixed;
-    bottom: 3rem;
+    bottom: 4rem;
     right: 3rem;
     width: 4rem;
     height: 4rem;
@@ -268,4 +269,37 @@ footer {
     color: white;
     background-color: var(--charcoal);
     border-bottom: 0.2rem solid var(--tan);
+}
+
+/* media queries */
+@media(max-width: 1000px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 750px) {
+    html {
+        font-size: 16px;
+    }
+
+    #library {
+        padding: 0;
+    }
+}
+
+@media(max-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+
+    #library {
+        grid-template-columns: 13rem repeat(auto-fit, 13rem); 
+    }
 }
