@@ -1,3 +1,27 @@
+/* fonts */
+@font-face {
+    font-family: 'datalegreyathin';
+    src: url('./fonts/datalegreya-thin-webfont.woff2') format('woff2'),
+         url('./fonts/datalegreya-thin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'changaregular';
+    src: url('./fonts/changa-regular-webfont.woff2') format('woff2'),
+         url('./fonts/changa-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* color */
+:root {
+    --tan: #B68D40;
+    --charcoal: #122620;
+    --gold: #D6AD60;
+}
+
 /* default */
 * {
     margin: 0;
@@ -23,93 +47,134 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-family: 'datalegreyathin';
 }
 
 /* header */
 header {
     position: relative;
-    padding: 2rem;
+    padding: 0 2rem;
+    background-color: var(--charcoal);
+    color: white;
 }
 
 #book-icon {
     position: absolute;
     left: 2rem;
+    top: 1rem;
 }
 
 #book-icon,
 #book-icon > img {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 h1 {
     text-align: center;
+    text-shadow: 2px 2px var(--tan);
+    font-family: 'changaregular';
+    font-size: 2.5rem;
 }
 
 /* main */
 main {
+    background: var(--gold) url("./images/library.jpg") center/cover no-repeat;
+    background-blend-mode: multiply;
     flex-grow: 1;
-    padding: 2rem;
+    padding: 1.5rem 2rem;
 }
 
 #library {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 14rem repeat(auto-fit, 14rem);
     gap: 1rem;
+    padding: 0 3rem;
 }
 
 .card {
-    border: 1px solid black;
     border-radius: 1rem;
     padding: 1rem;
     display: grid;
-    row-gap: 0.25rem;
+    background-color: var(--charcoal);
+    color: white;
+    opacity: 0.8;
 }
 
 .del-btn {
     width: 1.5rem;
     height: 1.5rem;
-    border-radius: 50%;
-    border: 1px solid black;
-    background-color: white;
+    background-color: transparent;
     justify-self: end;
+    background-image: url(./icons/trash-icon.svg);
+}
+
+.del-btn:hover {
+    cursor: pointer;
 }
 
 .card > i,
 .card > i > img {
-    width: 8rem;
-    height: 8rem;
+    width: 5rem;
+    height: 5rem;
 }
 
-.card > i,
-.card > div:nth-child(3) {
+.card > i {
     justify-self: center;
+    margin-bottom: 0.3rem;
+}
+
+.card > div:not(div:last-child) {
+    white-space: nowrap;
+    overflow-x: hidden;
 }
 
 .card .read-container {
     justify-self: end;
     column-gap: 0.25rem;
+    margin-top: 0.3rem;
 }
 
 #add-book-button {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 3rem;
+    right: 3rem;
     width: 4rem;
     height: 4rem;
-    border: 1px solid black;
     border-radius: 50%;
+    font-size: 2rem;
+    background-color: var(--gold);
+    cursor: pointer;
+}
+
+#plus-icon {
+    width: 2rem;
+    height: 2rem;
+    vertical-align: middle;
+}
+
+#add-book-button:hover,
+#form-buttons > button:hover {
+    background-color: var(--tan);
 }
 
 /* dialog and form */
 dialog {
     margin: auto;
     padding: 1.5rem;
-    background-color: lightblue;
+    color: white;
+    background-color: var(--charcoal);
+    border-radius: 1rem;
+    border: none;
 }
 
 dialog > p {
     margin-bottom: 1rem;
+}
+
+dialog::backdrop {
+    background-color: var(--tan);
+    opacity: 0.4;
 }
 
 form {
@@ -128,6 +193,12 @@ input[type="text"]{
     padding-left: 0.25rem;
 }
 
+.error-message {
+    color: red;
+    font-size: 0.6rem;
+    font-family: "serif";
+}
+
 /* read input */
 .read-container {
     display: grid;
@@ -137,6 +208,7 @@ input[type="text"]{
 .read-switch {
     position: relative;
     width: 2.5rem;
+    cursor: pointer;
 }
 
 .slider {
@@ -164,7 +236,7 @@ input[type="text"]{
 }
 
 input[type="checkbox"]:checked + .slider {
-    background-color: cornflowerblue;
+    background-color: var(--gold);
 }
 
 input[type="checkbox"]:checked + .slider::before {
@@ -185,10 +257,15 @@ input[type="checkbox"]:checked + .slider::before {
     width: 4.5rem;
     height: 1.5rem;
     border-radius: 1rem;
+    background-color: var(--gold);
+    cursor: pointer;
 }
 
 /* footer */
 footer {
     text-align: center;
     padding: 0.5rem;
+    color: white;
+    background-color: var(--charcoal);
+    border-bottom: 0.2rem solid var(--tan);
 }

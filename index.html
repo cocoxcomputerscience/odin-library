@@ -9,28 +9,28 @@
 </head>
 <body>
     <header>
-        <i id="book-icon"><img src="./book-icon.svg"></i>
-        <h1>Library</h1>
+        <i id="book-icon"><img src="./icons/book-icon.svg"></i>
+        <h1>LIBRARY</h1>
     </header>
     <main>
         <div id="library">
         </div>
-        <button id="add-book-button">+</button>
+        <button id="add-book-button"><img id="plus-icon" src="./icons/plus-icon.svg" alt="plus"></button>
         <dialog>
             <p>Add a book</p>
             <form novalidate>
                 <div>
-                    <label for="title">*Title: </label>
+                    <label for="title">Title: </label>
                     <input type="text" id="title" name="title" required>
                     <span class="error-message"></span>
                 </div>
                 <div>
-                    <label for="author">*Author: </label>
+                    <label for="author">Author: </label>
                     <input type="text" id="author" name="author" required>
                     <span class="error-message"></span>
                 </div>
                 <div>
-                    <label for="pages">*Pages: </label>
+                    <label for="pages">Pages: </label>
                     <input type="text" id="pages" name="pages" pattern="^\d*[1-9]\d*$" required>
                     <span class="error-message"></span>
                 </div>
@@ -48,6 +48,6 @@
             </form>
         </dialog>
     </main>
-    <footer>cocoxcomputerscience@gmail.com</footer>
+    <footer>&copy; Copyright 2024 cocoxcomputerscience@gmail.com</footer>
 </body>
 </html>

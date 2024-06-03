@@ -24,32 +24,32 @@ function addToLibrary() {
 
 function deleteBook(e) {
     let index = e.currentTarget.dataset.index;
-    myLibrary.splice(index, 1);
     let book = document.querySelector(`div[data-index='${index}']`);
     book.parentNode.removeChild(book);
+    myLibrary.splice(index, 1);
 }
 
 function displayBook() {
     let index = myLibrary.length - 1
     let newBook = myLibrary[index];
-    let cardImgWrapper = document.createElement("i");
-    let cardImg = document.createElement("img");
+    let imgWrapper = document.createElement("i");
+    let img = document.createElement("img");
     let card = document.createElement("div");
     let delBtn = document.createElement("button");
-    delBtn.textContent = "X"
 
+    img.setAttribute("src", "./icons/book-icon-two.svg");
+    imgWrapper.appendChild(img);
     delBtn.dataset.index = index;
     delBtn.classList.add("del-btn");
     delBtn.addEventListener("click", deleteBook);
-    cardImg.setAttribute("src", "./book-icon.svg");
-    cardImgWrapper.appendChild(cardImg);
     card.classList.add("card");
-    // used to identify book
     card.dataset.index = index;
     card.appendChild(delBtn);
-    card.appendChild(cardImgWrapper);
+    card.appendChild(imgWrapper);
 
     for (property in newBook) {
+        if (property === "toggleRead") continue;
+        
         let div = document.createElement("div");
         let para = document.createElement("p");
 
@@ -59,15 +59,14 @@ function displayBook() {
                 div.appendChild(para);
                 break;
             case "author":
-                para.textContent = `by ${newBook[property]}`;
+                para.textContent = `By: ${newBook[property]}`;
                 div.appendChild(para);
                 break;
             case "pages":
-                para.textContent = `pages: ${newBook[property]}`;
+                para.textContent = `Pages: ${newBook[property]}`;
                 div.appendChild(para);
                 break;
             case "read":
-                div.classList.add("read-container");
                 para.textContent = "Read: "
                 let label = document.createElement("label");
                 let input = document.createElement("input");
@@ -77,8 +76,8 @@ function displayBook() {
                 div.classList.add("read-container")
                 label.classList.add("read-switch");
                 input.setAttribute("type", "checkbox");
-                input.addEventListener("click", toggleRead);
                 input.dataset.index = index;
+                input.addEventListener("click", toggleRead);
                 span.classList.add("slider");
                 label.appendChild(input);
                 label.appendChild(span)
