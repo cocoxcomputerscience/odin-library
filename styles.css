@@ -30,7 +30,7 @@
 }
 
 html {
-    font-size: 18px;
+    font-size: 24px;
 }
 
 input,
@@ -87,9 +87,9 @@ main {
 
 #library {
     display: grid;
-    grid-template-columns: 14rem repeat(auto-fit, 14rem);
+    grid-template-columns: repeat(auto-fit, 14rem);
     gap: 1rem;
-    padding: 0 3rem;
+    /* padding: 0 1rem; */
     justify-content: center;
 }
 
@@ -138,8 +138,8 @@ main {
 
 #add-book-button {
     position: fixed;
-    bottom: 4rem;
-    right: 3rem;
+    bottom: 3rem;
+    right: 2rem;
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
@@ -265,6 +265,7 @@ input[type="checkbox"]:checked + .slider::before {
 
 /* footer */
 footer {
+    font-size: 0.8rem;
     text-align: center;
     padding: 0.5rem;
     color: white;
@@ -273,34 +274,16 @@ footer {
 }
 
 /* media queries */
-@media(max-width: 1000px) {
+@media(max-width: 950px) {
     html {
-        font-size: 18px;
-    }
-}
-
-@media(max-width: 750px) {
-    html {
-        font-size: 16px;
-    }
-
-    #library {
-        padding: 0;
-    }
-}
-
-@media(max-width: 600px) {
-    html {
-        font-size: 14px;
+        font-size: 20px;
     }
 }
 
 @media(max-width: 500px) {
-    html {
-        font-size: 12px;
-    }
-
-    #library {
-        grid-template-columns: 13rem repeat(auto-fit, 13rem); 
+    #add-book-button {
+        width: 3.5rem;
+        height: 3.5rem;
+        right: 1.5rem;
     }
 }
